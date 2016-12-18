@@ -83,7 +83,7 @@ test:
 production:
   <<: *default
   adapter: postgresql
-  host: blog-ruby-ivan.herokuapp.com
+  url: https://blog-ruby-ivan.herokuapp.com
   encoding: unicode
   database: prueba_basica
   pool: 5
