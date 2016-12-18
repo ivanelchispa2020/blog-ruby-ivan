@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Respuesta Comentarios</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Articulo</th>
+      <th>Comentario</th>
+      <th>Email</th>
+      <th>Sitio</th>
+      <th>Mensaje</th>
+      <th>Fecha subida</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @respuesta_comentarios.each do |respuesta_comentario| %>
+      <tr>
+        <td><%= respuesta_comentario.articulo %></td>
+        <td><%= respuesta_comentario.comentario %></td>
+        <td><%= respuesta_comentario.email %></td>
+        <td><%= respuesta_comentario.sitio %></td>
+        <td><%= respuesta_comentario.mensaje %></td>
+        <td><%= respuesta_comentario.fecha_subida %></td>
+        <td><%= link_to 'Show', respuesta_comentario %></td>
+        <td><%= link_to 'Edit', edit_respuesta_comentario_path(respuesta_comentario) %></td>
+        <td><%= link_to 'Destroy', respuesta_comentario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Respuesta Comentario', new_respuesta_comentario_path %>

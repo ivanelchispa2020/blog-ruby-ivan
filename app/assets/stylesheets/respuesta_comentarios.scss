@@ -1,0 +1,25 @@
+// Place all the styles related to the Respuesta_comentarios controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.respuesta_a_comentarios{
+	border: 1px solid  #E6E6FA;
+	background: 	#F0FFFF;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	padding: 10px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+
+.respuesta_a_comentarios:hover{
+	background: 	#29CDE0;
+
+	}
+
+.resp_titulo{
+	text-align: center;
+	font-weight: bold;
+}

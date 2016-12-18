@@ -1,0 +1,49 @@
+				<aside class="col-md-3 hidden-xs hidden-sm">
+							<h4>Categorias</h4>
+									<div class="list-group text-center">
+											<a href="*" class="list-group-item active disabled"><span class="color">Cursos</span></a>
+
+
+						
+					<% if request.original_fullpath == "/articulos"  %>
+
+									<%@categorias.each do |categoria| %>
+									<a href="articulos?cat=<%=categoria.id %>" class="list-group-item "><span class="color"><%=categoria.nombre_categoria %></span></a>	
+								<%end %>
+
+					<% else %>
+
+									<%@categorias.each do |categoria| %>
+									<a href="<%=request.base_url%>/articulos?cat=<%=categoria.id %>" class="list-group-item "><span class="color"><%=categoria.nombre_categoria %></span></a>	
+								<%end %>
+
+					<% end %>
+
+	
+																</div>
+							<h4>Articulos Recientes</h4>
+						
+						<% if request.original_fullpath == "/articulos"  %>
+
+								<% @ultimos_articulos.each do |ultimo_articulo| %>
+										<a href="articulos/<%=ultimo_articulo.id %>" class="list-group-item text-center">
+											<h5 class="list-group-item-heading ultimos_articulos_titulo" id="ultimos_articulos_titulo">
+											<%= ultimo_articulo.titulo %></h5>
+										<p class="list-group-item-text"><%= ultimo_articulo.parrafo_principal[0,50] + "...."%></p>
+										</a>
+								<% end %>
+
+						<% else %>
+
+								<% @ultimos_articulos.each do |ultimo_articulo| %>
+										<a href="/articulos/<%=ultimo_articulo.id %>" class="list-group-item text-center">
+											<h4 class="list-group-item-heading" style="color:green; font-size: 18px"><%= ultimo_articulo.titulo %></h4>
+										<p class="list-group-item-text"><%= ultimo_articulo.parrafo_principal[0,50] + "...."%></p>
+										</a>
+								<% end %>
+
+						<%end %>
+						</aside>
+										</div>
+						</section>
+

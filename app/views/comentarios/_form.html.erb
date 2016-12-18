@@ -1,0 +1,65 @@
+<%= form_for([@articulo,@comentario],name: "formulario", :html => {:multipart => true}) do |f| %>
+  <% if @comentario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(comentario.errors.count, "error") %> prohibited this comentario from being saved:</h2>
+
+      <ul>
+      <% @comentario.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+   <div class="container">
+         <div class=" col-md-6 col-md-offset-2">
+              
+              <div class="field">
+                <%= f.label :email %>
+                <%= f.text_field :email , id: "txt_email", type:"email" ,class: "form-control" , placeholder: "Ingrese Correo....",required: true %>
+              </div>
+               <label class="oculto_correo" >El campo correo es obligatorio</label>
+              
+              <div class="field">
+                <%= f.label :sitio %>
+                <%= f.text_field :sitio , type: "url",class: "form-control", placeholder: "No sera publicado...."%>
+              </div>
+    
+                <label id="mi_captcha"></label>
+          
+                  <div class="form-group">
+          
+                  <label class="sr-only">Ingrese captcha</label>
+                 <input type="text" name="captcha" class="form-control" id="txt_captcha" placeholder="Ingrese numero que aparece en la Imagen.." required>
+                  <label class="oculto_captcha" >Por favor ingrese el numero que aparece en la imagen.GRACIAS</label>                
+                  </div>
+ 
+             <div class="checkbox">
+                  <label>
+                    <input type="checkbox" id="ch_imagen"> Deseas compartir una imagen....
+                  </label>
+                </div>
+
+
+               <div class="field  imagen_oculta">
+                <%= f.file_field :avatar , class: "form-group" %>
+                <%= f.hidden_field :avatar_cache %>
+              </div>
+    
+
+              <div class="field">
+                <%= f.label :mensaje %>
+                <%= f.text_area :mensaje, id: "txt_mensaje" , class: "form-control",required: true , placeholder: "Escriba aqui lo que desea comentar..." %>
+              </div>
+              <label class="oculto_mensaje" >Este campo es obligatorio.Rellenelo.Gracias</label>
+
+              
+              <button class="btn btn-success btn_enviar">Enviar</button>
+              
+
+                </div>
+           </div>
+
+<% end %>
+
+

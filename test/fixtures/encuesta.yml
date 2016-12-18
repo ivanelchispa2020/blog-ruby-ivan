@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  articulo_id: 1
+  poco_util: 1
+  regular: 1
+  util: 1
+  bueno: 1
+  excelente: 1
+
+two:
+  articulo_id: 1
+  poco_util: 1
+  regular: 1
+  util: 1
+  bueno: 1
+  excelente: 1

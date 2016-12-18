@@ -1,0 +1,156 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+	header{ font-size:1.3em;}
+	aside{ font-size:1.2em;
+		}
+	
+	body{ font-family: "Comic Sans MS";  }
+
+
+	h4{	font-family:"Comic Sans MS", bold;
+	display: block;
+	font-size: 26px;
+	color:#8B0000;
+	text-align:center;}
+	
+	.miga-de-pan{
+		font-size:1.2em;
+		font-weight:bold;
+		margin-top: 20px;
+	}
+
+		/*HEADER*/
+	.navbar{
+		margin-bottom:-30px;
+		font-family: "Comic Sans MS";	
+	  }
+	
+	.color{
+		font-weight:bold;
+		}	
+			
+	.color1{
+		font-size:1.3em;}	
+		/* POST */
+	 
+	 .main{
+		 margin-top:20px;
+		 margin-bottom:20px;}
+		 
+	.post{
+		padding-bottom:20px;
+		margin-bottom:20px;
+		border-bottom:1px solid #999}
+	.post p{
+		font-family:"Comic Sans MS", cursive;
+		font-size:1.2em;
+		
+		
+		}
+	.post-contenido{
+		padding:5px;
+		text-align:justify;}
+
+	.post-title a{
+		font-size: 0.8em;
+		font-family: "Comic Sans MS";
+		font-weight: bold;
+	}
+	.post-title a:hover{
+		background: white;
+		color:black;
+	}
+	.post-autor a:hover{
+	background: white;
+		color:black;	
+	}
+
+	.post .thumb{
+		margin-right:10px;
+		width:40%;	
+		}
+	.post .thumb img{ width:100%;}	 
+	.post .contenedor-botones{ width:100%;}
+	
+
+@media screen and (max-width:768px){ 
+	.post .thumb{
+		width:100%;
+		margin-bottom:20px;
+		margin-right:0px;}
+	}
+	
+	
+#encuesta_grafico{
+	text-align: center;
+	font-weight: bold;
+	font-family:"Comic Sans MS";
+	color: #650303;
+	font-size: 1.5em;
+}
+
+#btn_envia_encuesta{
+	margin-top: 20px;
+	background-color: #24E8FA;
+	color:black;
+	font-size: 0.8sem;
+}
+
+#btn_envia_encuesta:hover{
+	background-color: #150574;
+	color: white;
+}
+
+.resalta_buscador{
+	color:#FC00FF;
+	font-weight: bold;
+}
+
+#piechart_3d{
+	width: 900px; 
+	height: 500px;
+}
+
+
+.color_1{
+	font-weight: bold;
+	font-size: 1.2em;
+	color:#FF6600;
+}
+
+.arriba{
+	position:fixed;
+	    bottom:30px;
+	    right:20px;
+	    display:none;
+	    opacity: 0.6;
+}
+.arriba:hover{
+		opacity: 1;
+}
+
+#ultimos_articulos_titulo{
+	font-weight: bold;
+	font-size: 19px;
+	color:green;
+}
+.ultimos_articulos_titulo{
+	font-weight: bold;
+	font-size: 18px;
+	color:green;
+}

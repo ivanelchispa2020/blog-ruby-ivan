@@ -1,0 +1,80 @@
+					<div class="container">
+										<div class="row">
+											<div class="col-xs-6">
+													<p>IvanLopez.com</p>
+												 </div>
+												<div class="col-xs-6">
+															<ul class="list-inline text-right">
+																	<li><a href="articulos">Inicio</a></li>
+																		<li><a href="articulos">Curso</a></li>
+																		<li>
+																		<a data-toggle="modal" data-target="#contacto" >
+																		Contacto
+																		</a>
+																		</li>
+																</ul>
+														</div>
+										</div>
+								</div>
+						</footer>
+
+
+
+					<%= image_tag "arriba.png", width: 50, class: "arriba" %>
+<script>
+					  $('.arriba').click(function(){
+			  $("html, body").animate({ scrollTop: 0 }, 600);
+        				return false;
+			        });
+
+</script>
+
+															<!-- Modal -->
+<div class="modal fade" id="presentacion_ivan" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Bienvenidos a mi blog...!!!!</h4>
+			</div>
+			<div class="modal-body">
+				<h3> 
+				Hola mi nombre es Iván Sergio Lopez y este es un blog realizado con Ruby on rayls....
+				Solo es como prueba.. solo fines didacticos...jajaja
+					</h3>
+		 
+				<%= image_tag "flash.png" , :width => "250px"%> 
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+															<!-- Modal -->
+<div class="modal fade" id="contacto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Bienvenidos a mi blog...!!!!</h4>
+			</div>
+			<div class="modal-body">
+				<h4> 
+				Hola mi nombre es Iván Sergio Lopez y este es un blog realizado con Ruby on rayls....
+				Estos son mis datos...<br>
+							Correo: ivanlopez_88@hotmail.com<br>
+							Correo 2: ivansergiolopez2020@gmail.com<br>
+							cel: 0343-154-540-675<br>
+
+					</h4>
+		 
+				<%= image_tag "linterna_verde.jpg" , :width => "250px"%> 
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+			</div>
+		</div>
+	</div>
+</div>

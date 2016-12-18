@@ -1,0 +1,92 @@
+// Place all the styles related to the Comentarios controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+#mi_captcha{
+	background: red;
+	font-size: 22px;
+	width: 110px;
+	height: 35px;
+	text-align: center;
+	font-weight: bold;
+	font-family: "Comic Sans Ms";
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+
+
+.mis_comentarios{
+	border: 1px solid #F4D1FF;
+	background: #FFF8DC;
+	font-size: 1.1em;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	padding-right: 15px;
+	margin-bottom: 20px;
+}
+
+.mis_comentarios:hover{
+	background: #FE4949;
+}
+
+.mi_comentario{
+	background: #00FF60;
+	color:black;
+	font-weight: bold;
+	font-size: 11px;
+}
+.mi_comentario:hover{
+	background:#075001;
+	color:white;
+}
+
+
+.titulo_mis_comentarios{
+	color: #BDB76B;
+	font-weight: bold;
+	text-align:  left;
+	font-size: 16px;
+}
+
+.mis_comentarios_mensaje{
+	font-weight: bold;
+	font-size: 14px;
+	text-align: center;	
+}
+
+.mis_comentarios_email{
+	color:#800000;
+	text-align: right;
+}
+
+
+.mis_comentarios_fecha{
+	color:#808000;
+	text-align: right;
+}
+
+.imagen_comentario{
+	text-align: right;
+	margin-bottom: 15px;
+}
+
+.oculto_correo,.oculto_captcha, .oculto_mensaje{
+	color:red;
+	font-weight: bold;
+	font-family: "Comic Sans MS";
+
+}
+
+.checkbox{
+	text-align: right;
+	color: #930101;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.btn_enviar{
+	text-align: center;
+}

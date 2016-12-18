@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Articulo:</strong>
+  <%= @respuesta_comentario.articulo %>
+</p>
+
+<p>
+  <strong>Comentario:</strong>
+  <%= @respuesta_comentario.comentario %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @respuesta_comentario.email %>
+</p>
+
+<p>
+  <strong>Sitio:</strong>
+  <%= @respuesta_comentario.sitio %>
+</p>
+
+<p>
+  <strong>Mensaje:</strong>
+  <%= @respuesta_comentario.mensaje %>
+</p>
+
+<p>
+  <strong>Fecha subida:</strong>
+  <%= @respuesta_comentario.fecha_subida %>
+</p>
+
+<%= link_to 'Edit', edit_respuesta_comentario_path(@respuesta_comentario) %> |
+<%= link_to 'Back', respuesta_comentarios_path %>

@@ -1,0 +1,183 @@
+<script> comenzar();</script>
+
+
+
+							<section class="main container">
+								<div class="row">
+											<section class="posts col-md-9">
+													<div class="miga-de-pan">
+															<ol class="breadcrumb">
+																	<li><%= link_to "Inicio" , articulos_path %></li>
+																	<li><%= link_to "Categoria" , articulos_path %></li>
+																	<li>
+<%@categoria_nombre.each do |mi_cat| %>
+ 				<%= link_to "#{mi_cat.nombre_categoria}" , articulos_path,:class => "active" %>
+<% end %>		
+																		
+																	</li>
+																</ol>
+														</div>
+
+  
+
+
+													<article class="post clearfix">
+
+										<a data-toggle="modal" data-target="#imagen_modal" class="thumb pull-left">
+											<%=image_tag "articulo/#{@articulo.imagen}", :class =>"img-thumbnail", :width =>"50px" %>
+											</a>
+															
+																		<h2 class="post-title">
+																			 <%= link_to "#{@articulo.id}" ,:class =>"disabled" do %>
+																				<%= @articulo.titulo %>
+																			<% end %>
+																		</h2>
+																		<p><span class="post-fecha">
+		<%=@articulo.fecha_subida.strftime("Subido el %d/%m/%y a las %H:%M:%S. Hs.")%></span> por <span class="post-autor"><a data-toggle="modal" data-target="#myModal">
+		<%= @articulo.autor %>
+		</a>
+				 </span></p>
+												<p class="post-contenido">
+																<%= @articulo.parrafo %>
+																</p>
+															
+																<p class="post-contenido">
+																<%=raw @articulo.parrafo_principal %>
+																</p>
+																	<div class="contenedor-botones">
+																	<a class="btn btn-danger">Leer mas</a>
+																	<a class="btn btn-success">Comentarios <span class="badge"></span><%=@total_comentarios %></a>
+																	</div>
+											
+														</article>
+
+
+<%= render "encuesta" %>
+
+
+		<% @articulo.comentarios.each do |comentario| %>
+
+<div class="row">
+	<div class="col-md-12  mis_comentarios">
+	
+		<div class="media">
+	<div class="media-left media-middle">
+		<%= image_tag comentario.avatar,width: "64px" , class: "media-object", alt: "imagen_com"%>
+		</div>
+	
+	<div class="media-body">
+	<a data-toggle="modal" data-target="#resp_comentario<%=comentario.id %>" class="mi_comentario btn  pull-right">
+		Responder 
+		</a>
+		<h5 class="media-heading titulo_mis_comentarios"><%= @articulo.titulo %></h5>
+		<div class="mis_comentarios_mensaje"><%= comentario.mensaje %></div>
+		<div class="mis_comentarios_email">Escrito por:<strong> <%= comentario.email %></strong></div>
+		<div class="mis_comentarios_fecha">	<%= comentario.created_at.strftime("Subido el %d/%m/%y a las %H:%M:%S Hs.") %></div>
+	</div>
+	<input type="hidden" name="id_coment_oculto" class="id_comentario_oculto" value="<%=comentario.id %>">
+
+	</div>
+<% @respuestas_de_comentarios.each do |respuesta| %>
+	<% if comentario.id== respuesta.comentario_id   %>
+
+	<div class="col-md-offset-1 respuesta_a_comentarios">
+		  <div class="media-left">
+		    <a href="#">
+		    <%= image_tag respuesta.avatar,width: "64px" , class: "media-object", alt: "imagen_com"%>
+		    </a>
+		  </div>
+		  <div class="media-body">
+		    <h5 class="media-heading resp_titulo"> <%= respuesta.mensaje %> </h5>
+		     <div class="mis_comentarios_email">Escrito por:<strong> <%=respuesta.email %></strong></div>
+				<div class="mis_comentarios_fecha">	<%= respuesta.created_at.strftime("Subido el %d/%m/%y a las %H:%M:%S Hs.") %>
+			</div>
+
+		  </div>
+		</div>
+
+
+	<% end %>
+
+<% end %>
+
+
+
+	</div>
+</div>   
+ 
+		<%= render "respuesta_comentarios/form" , comentario_id: comentario.id %>
+		
+
+<% end %>
+
+
+
+<div class="imagen_comentario">
+<%= image_tag "comen.gif" ,alt: "comentario" ,width: "250px" %>
+</div>
+
+	 <%= render "comentarios/form"%>
+	
+
+	
+	
+												</section>
+   
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel"><%= @articulo.titulo %></h4>
+			</div>
+			<div class="modal-body">
+				<h2>Bienvenidos a mi blog...!!!!</h2>
+				<h3> 
+				Hola este articulo fue escrito por <%= @articulo.autor %>. 
+				<%=@articulo.fecha_subida.strftime("Publicado el dia %d/%m/%y a las %H/%M/%S.")%>
+				</h3>
+		 
+				<%= image_tag "ivan_avatar.png" , :width => "250px"%> 
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="imagen_modal" tabindex="-1" role="dialog" aria-labelledby="mi_imagen_label">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Gracias por compartir esta imagen..!!!</h4>
+			</div>
+			<div class="modal-body">
+				<h4>Imagen subida por  <%= @articulo.autor %>. </h4>
+				<h5> 
+				Hola esta imagen  fue subida el 
+				<%=@articulo.fecha_subida.strftime("Publicado el dia %d/%m/%y a las %H:%M:%S hs.")%>
+				</h5>
+		 
+				<%= image_tag "articulo/#{@articulo.imagen}" , class: "img-responsive"%> 
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<%= render "aside" %>
+
+
+

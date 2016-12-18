@@ -1,0 +1,2 @@
+module EncuestaArticulosHelper
+end

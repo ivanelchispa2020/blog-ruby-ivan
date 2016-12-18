@@ -1,0 +1,1 @@
+json.partial! "respuesta_comentarios/respuesta_comentario", respuesta_comentario: @respuesta_comentario

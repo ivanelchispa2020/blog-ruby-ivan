@@ -1,0 +1,49 @@
+<%= form_for([@articulo,@encuesta_articulo]) do |f| %>
+  <% if @encuesta_articulo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@encuesta_articulo.errors.count, "error") %> prohibited this @encuesta_articulo from being saved:</h2>
+
+      <ul>
+      <% @encuesta_articulo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<div id="encuesta_grafico">
+       <h3 class="post_titulo_encuesta">  ¿Que te Ha parecido el árticulo?</h3>
+
+      <div class="field">
+          <%= f.label :poco_util %>
+         <%= radio_button_tag(:valor,"poco_util") %>
+        </div>
+
+      <div class="field">
+          <%= f.label :regular %>
+         <%= radio_button_tag(:valor,"regular") %>
+        </div>
+
+      <div class="field">
+          <%= f.label :interesante %>
+         <%= radio_button_tag(:valor,"interesante") %>
+        </div>
+
+      <div class="field">
+          <%= f.label :bueno %>
+         <%= radio_button_tag(:valor,"bueno",check: true) %>
+        </div>
+        
+      <div class="field">
+          <%= f.label :excelente %>
+         <%= radio_button_tag(:valor,"excelente") %>
+        </div>
+
+        <input type="hidden" name="articulo_id" id="articulo_id">
+        <div class="actions">
+            <%= f.submit "Enviar", id: "btn_envia_encuesta" ,class: "btn" %>
+        </div>
+</div>
+
+<% end %>

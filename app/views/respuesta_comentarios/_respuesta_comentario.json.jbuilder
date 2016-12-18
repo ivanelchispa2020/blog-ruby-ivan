@@ -1,0 +1,2 @@
+json.extract! respuesta_comentario, :id, :articulo_id, :comentario_id, :email, :sitio, :mensaje, :fecha_subida, :created_at, :updated_at
+json.url respuesta_comentario_url(respuesta_comentario, format: :json)

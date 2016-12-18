@@ -1,0 +1,37 @@
+ <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+    
+      <% @encuesta_articulos.each do |encuesta| %>
+          ['Encuesta', 'Que opina del articulo'],
+          ['Poco_util',     <%=encuesta.poco_util %>],
+          ['Regular',      <%=encuesta.regular %>],
+          ['Interesante',  <%=encuesta.interesante %>],
+          ['Bueno', <%=encuesta.bueno %>],
+          ['Excelente',    <%=encuesta.excelente %>]
+     <% end %>
+        ]);
+
+        var options = {
+          title: '¿ Qué te ha parecido el árticulo ?',
+          is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+      }
+
+
+
+
+    </script>
+
+
+
+<%= render "encuesta_articulos/form" %>
+
+
+<div id="piechart_3d" ></div>

@@ -1,0 +1,1 @@
+json.array! @encuesta_articulos, partial: 'encuesta_articulos/encuesta_articulo', as: :encuesta_articulo

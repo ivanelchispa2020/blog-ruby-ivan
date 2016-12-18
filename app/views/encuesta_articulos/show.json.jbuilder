@@ -1,0 +1,1 @@
+json.partial! "encuesta_articulos/encuesta_articulo", encuesta_articulo: @encuesta_articulo

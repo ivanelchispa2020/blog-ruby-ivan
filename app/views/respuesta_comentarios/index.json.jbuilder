@@ -1,0 +1,1 @@
+json.array! @respuesta_comentarios, partial: 'respuesta_comentarios/respuesta_comentario', as: :respuesta_comentario

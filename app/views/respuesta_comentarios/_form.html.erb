@@ -1,0 +1,86 @@
+<script>validar_respuestas(<%=comentario_id%>);</script>
+  
+<!-- Modal -->
+<div class="modal fade" id="resp_comentario<%=comentario_id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Respuesta <%=comentario_id %> </h4>
+      </div>
+      <div class="modal-body">
+
+<%= form_for([@articulo,@respuesta_comentario],id: "respuesta_comentario_#{comentario_id}") do |f| %>
+  <% if @respuesta_comentario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@respuesta_comentario.errors.count, "error") %> prohibited this respuestum from being saved:</h2>
+
+      <ul>
+      <% @respuesta_comentario.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email ,class: "form-control txt_email_resp_#{comentario_id}",type: "email",required: true, placeholder: "Ingrese un email valido..." %>
+  </div>
+     <label class="resalta_error oculto_email_resp_<%=comentario_id%>">Por favor ingrese un email valido...!!!</label>
+
+  <div class="field">
+    <%= f.label :sitio %>
+    <%= f.text_field :sitio,class: "form-control" ,placeholder: "No sera publicado..." %>
+  </div>
+
+        <label id="mi_captcha_2_<%=comentario_id %>"></label>
+        <div class="form-group">
+        <label class="sr-only">Ingrese captcha</label>
+    <input type="text" name="captcha" class="form-control txt_captcha_resp_<%=comentario_id%>" placeholder="Ingrese numero que aparece en la Imagen.." required>
+        
+  <label class="resalta_error oculto_captcha_resp_<%=comentario_id %>" >Por favor ingrese el numero que aparece en la imagen.GRACIAS</label>                
+          </div>
+
+
+
+ <div class="checkbox">
+                  <label>
+                    <input type="checkbox" id="ch_imagen_<%=comentario_id %>"> Deseas compartir una imagen....
+                  </label>
+                </div>
+
+
+               <div class="field  imagen_oculta_<%=comentario_id %>">
+                <%= f.file_field :avatar , class: "form-group" %>
+              </div>
+    
+
+  <div class="field">
+    <%= f.label :mensaje %>
+    <%= f.text_area :mensaje,class: "form-control txt_mensaje_resp_#{comentario_id}" , required: true, placeholder: "Ingrese aqui lo que desea publicar..."%>
+    <label class="resalta_error oculto_mensaje_resp_<%=comentario_id%>">Por favor ingrese aqui lo que desea compartir....</label>
+  </div>
+
+
+  <input type="hidden" name="articulo_id" id="articulo" value="<%= @articulo.id %>">
+  <input type="hidden" name="comentario_id" id="id_comentario" value="<%=comentario_id %>">
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+
+<button class="btn btn-success btn_enviar_respuestas_<%=comentario_id%>">Enviar</button>
+  
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<% end %>
+
+
+
+

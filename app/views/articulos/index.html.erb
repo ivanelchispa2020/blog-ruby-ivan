@@ -1,0 +1,143 @@
+		
+
+							<section class="main container">
+								<div class="row">
+											<section class="posts col-md-9">
+													<div class="miga-de-pan">
+															<ol class="breadcrumb">
+																	<li><%= link_to "Inicio" , articulos_path %></li>
+																	<li><%= link_to "Categoria" , articulos_path %></li>
+																	<li>
+		 	
+		 	<% if !@nombre_categoria.nil? %> 
+				<%@nombre_categoria.each do |cat| %>
+							<a class="disabled"><%= cat.nombre_categoria %></a>
+				<% end %>
+		  <% else %>
+
+
+		 			 	<a class="disabled">Cursos</a>
+
+	<% end %>
+																	</li>
+																</ol>
+														</div>
+
+														<%  contador=0 %>
+														<% @articulos.each do |articulo| %>
+
+													<article class="post clearfix">
+														<a class="thumb pull-left">
+
+														<%=image_tag "articulo/#{articulo.imagen}",class: "img-thumbnail" %>
+														 </a>
+												<h2 class="post-title">
+																	
+												<% if @parametro.nil? %>
+							   								<%= link_to "articulos/#{articulo.id}" do %>
+																			<%=raw articulo.titulo %>
+																<% end %>
+															<% else %>
+	   <%= link_to "articulos/#{articulo.id}" do %>
+		<%=raw articulo.titulo.gsub( @parametro.downcase,"<span class='resalta_buscador'>#{@parametro.downcase}</span>" ) %>
+															<% end %>
+											
+
+										<% end %>	
+																	
+
+																		</h2>
+													<p><span class="post-fecha">
+		<%=articulo.fecha_subida.strftime("Subido el %d/%m/%y a las %H:%M:%S Hs.")%>
+		</span> por <span class="post-autor">
+		<a data-toggle="modal" data-target="#myModal<%=contador %>" >
+   	<%= articulo.autor %> 
+		</a>
+				 </span></p>
+																<p class="post-contenido">
+					
+							<% if @parametro.nil? %>
+								<%=raw articulo.parrafo %>
+						
+							<% else %>
+													<%=raw articulo.parrafo.gsub( @parametro.downcase,"<span class='resalta_buscador'>#{@parametro.downcase}</span>" ) %>
+						
+
+							<% end %>
+										
+
+
+																</p>
+
+																	<div class="contenedor-botones">
+			<%= link_to "Leer mas...","articulos/#{articulo.id}", class: "btn btn-primary" %>
+					<%= link_to "articulos/#{articulo.id}", :class => "btn btn-success" do %>
+																			  Comentarios
+														<% contador_cuenta=0 %>
+														<%  @total_comentarios.each do |cuenta| %>
+																		<% if(cuenta.id == articulo.id) %>													
+																			<% contador_cuenta+=1 %>
+																		<% end %>
+										  				<% end %>
+
+										  							 <span class="badge"><%= contador_cuenta%></span>
+
+																			<% end %>	
+																	</div>
+					
+
+														</article>
+
+
+
+															<!-- Modal -->
+<div class="modal fade" id="myModal<%=contador%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><%= articulo.titulo %></h4>
+      </div>
+      <div class="modal-body">
+        <h2>Bienvenidos a mi blog...!!!!</h2>
+        <h3> 
+        Hola este articulo fue escrito por <%= articulo.autor %>. 
+      	<%=articulo.fecha_subida.strftime("Publicado el dia %d/%m/%y a las %H/%M/%S.")%>
+      	</h3>
+		 
+        <%= image_tag "ivan_avatar.png" , :width => "250px"%> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+   <%  contador+=1%>
+											<% end %>  													
+	
+		
+													<!--PAGINACION -->
+														<nav class="col-md-offset-4">
+															<div class="center-block">
+																	<ul class="pagination">
+																		
+												            <%= will_paginate @articulos, renderer: BootstrapPagination::Rails %>
+																
+																	</ul>
+																</div>
+														</nav>
+
+	
+<% if !@articulos_encontrados.nil? %>
+<h4> <%= "Articulos encontrados #{@articulos_encontrados} " %></h4>
+<% end %>
+		
+												</section>
+
+
+<%= render "aside" %>
+
+
+
